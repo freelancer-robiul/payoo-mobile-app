@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+.font-outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.single-feature img,
+p {
+  pointer-events: none;
+}
+
+.shadow-bottom {
+  box-shadow: 0 2px 2px rgba(30, 144, 255, 0.25);
+}
+
+.shadow-bottom-2 {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}

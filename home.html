@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payoo-app</title>
+    <link rel="shortcut icon" href="./images/Group.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Tailwind and daisyui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-[#F4F5F7]">
+    <div class="parent max-w-[450px] mx-auto bg-white">
+      <!-- header area  -->
+      <div
+        class="flex justify-between items-center border-b-2 border-[#08080808] py-[20px] px-[10px] sticky top-0 bg-blue-50 z-50 shadow-bottom"
+      >
+        <div class="left flex items-center">
+          <img class="h-[50px]" src="./images/Group.png" alt="" />
+          <div class="price ml-[10px] text-blue-600">
+            $<span id="main-balance" class="font-semibold">4500</span>
+            <p>Available Balance</p>
+          </div>
+        </div>
+        <div class="right">
+          <button
+            id="btn-logout"
+            class="border-1 border-blue-200 py-[8px] px-[15px] rounded-lg cursor-pointer text-[14px] text-blue-500"
+          >
+            <i
+              class="fa-solid fa-arrow-right-from-bracket rotate-180 mr-[5px]"
+            ></i>
+            Log Out
+          </button>
+        </div>
+      </div>
+
+      <!-- welcome area  -->
+      <div class="welcome p-[24px]">
+        <h1 class="text-[24px] font-bold mb-[7px]">
+          <i class="fa-solid fa-fire text-red-500"></i>
+          Welcome to Payooo!
+        </h1>
+        <p class="text-[14px] text-gray-500">
+          Enjoy easy and convenient financial services with us.<br />
+          Cashout charge is low and
+        </p>
+      </div>
+
+      <!-- Featured area  -->
+      <div
+        id="featured-area"
+        class="featured-area grid grid-cols-3 justify-items-center gap-4 rounded-b-lg p-[20px]"
+      >
+        <!-- Add Money  -->
+        <div
+          id="add-money"
+          class="single-feature w-[130px] h-[90px] border-2 border-gray-300 flex justify-center items-center flex-col rounded-lg space-y-2 p-[10px] cursor-pointer"
+        >
+          <img src="./images/wallet1.png" alt="" />
+          <p class="text-gray-500">Add Money</p>
+        </div>
+
+        <!-- Cash Out  -->
+        <div
+          id="cash-out"
+          class="single-feature w-[130px] h-[90px] border-2 border-gray-300 flex justify-center items-center flex-col rounded-lg space-y-2 p-[10px] cursor-pointer"
+        >
+          <img src="./images/send1.png" alt="" />
+          <p class="text-gray-500 text-[14px]">Cashout</p>
+        </div>
+
+        <!-- Transfer Money  -->
+        <div
+          id="transfer-money"
+          class="single-feature w-[130px] h-[90px] border-2 border-gray-300 flex justify-center items-center flex-col rounded-lg space-y-2 p-[10px] cursor-pointer"
+        >
+          <img src="./images/money1.png" alt="" />
+          <p class="text-gray-500 text-[14px]">Transfer Money</p>
+        </div>
+
+        <!-- Get Bonus1  -->
+        <div
+          id="get-bonus"
+          class="single-feature w-[130px] h-[90px] border-2 border-gray-300 flex justify-center items-center flex-col rounded-lg space-y-2 p-[10px] cursor-pointer"
+        >
+          <img src="./images/bonus1.png" alt="" />
+          <p class="text-gray-500 text-[14px]">Get bonus1</p>
+        </div>
+
+        <!-- Pay Bill  -->
+        <div
+          id="pay-bill"
+          class="single-feature w-[123px] w-[130px] h-[90px] border-2 border-gray-300 flex justify-center items-center flex-col rounded-lg space-y-2 p-[10px] cursor-pointer"
+        >
+          <img src="./images/purse1.png" alt="" />
+          <p class="text-gray-500 text-[14px]">Pay Bill</p>
+        </div>
+
+        <!-- Transactions  -->
+        <div
+          id="transaction-money"
+          class="single-feature w-[130px] h-[90px] border-2 border-gray-300 flex justify-center items-center flex-col rounded-lg space-y-2 p-[10px] cursor-pointer"
+        >
+          <img src="./images/transaction1.png" alt="" />
+          <p class="text-gray-500 text-[14px]">Transactions</p>
+        </div>
+      </div>
+    </div>
+    <!--================== Common are end  ===================-->
+
+    <!-- Add Money form area  -->
+    <div
+      id="add-money-form"
+      class="form max-w-[450px] mx-auto mt-[30px] hidden"
+    >
+      <h1 id="add-moneyH1" class="text-[20px] font-bold">Add Money</h1>
+      <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
+        <div class="single-form">
+          <label class="text-gray-500 text-[14px]" for="">Select Bank</label
+          ><br />
+          <select
+            id="select-bank"
+            class="select text-gray-500 text-[14px] w-full rounded-xl"
+          >
+            <option value="" disabled selected>Select a Bank</option>
+            <option value="AB">AB Bank</option>
+            <option value="IB">Islamic Bank</option>
+            <option value="DBBL">Dutch Bangla Bank</option>
+            <option value="SB">Sonali Bank</option>
+          </select>
+        </div>
+
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for=""
+            >Bank Account Number</label
+          ><br />
+          <input
+            id="input-account-number"
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Enter 11 digit account number"
+          />
+        </div>
+
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for="">Add Amount</label
+          ><br />
+          <input
+            id="input-add-amount"
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Add Amount"
+          />
+        </div>
+
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for="">Add Pin Number</label
+          ><br />
+          <input
+            id="pin-number"
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Add 4 digit pin number"
+          />
+        </div>
+        <button
+          id="btn-add-money"
+          class="w-full p-[10px] bg-blue-500 text-[16px] text-white font-bold text-center rounded-xl cursor-pointer"
+        >
+          Add Money
+        </button>
+      </div>
+    </div>
+    <!-- Add Money form area end  -->
+
+    <!-- Cash out form area  -->
+    <div id="cash-out-form" class="form max-w-[450px] mx-auto mt-[30px]">
+      <h1 id="cash-outH1" class="text-[20px] font-bold">Cash Out</h1>
+      <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for="">Agent Number</label
+          ><br />
+          <input
+            id="withdraw-account"
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Enter 11 digit number"
+          />
+        </div>
+
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for="">Amount</label><br />
+          <input
+            id="input-withdraw-money"
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Enter amount to withdraw"
+          />
+        </div>
+
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for="">Add Pin Number</label
+          ><br />
+          <input
+            id="withdraw-pin-number"
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Enter 5 digit pin number"
+          />
+        </div>
+        <button
+          id="btn-cashout-money"
+          class="w-full p-[10px] bg-blue-500 text-[16px] text-white font-bold text-center rounded-xl cursor-pointer"
+        >
+          Withdraw Money
+        </button>
+      </div>
+    </div>
+    <!-- Cash out form area end  -->
+
+    <!-- Transfer money form area  -->
+    <div
+      id="transfer-money-form"
+      class="form max-w-[450px] mx-auto mt-[30px] hidden"
+    >
+      <h1 class="text-[20px] font-bold">Transfer Money</h1>
+      <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for=""
+            >User Account Number</label
+          ><br />
+          <input
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Enter 11 digit number"
+          />
+        </div>
+
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for="">Amount</label><br />
+          <input
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Enter amount to transfer"
+          />
+        </div>
+
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for="">Pin Number</label
+          ><br />
+          <input
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Enter 4 digit pin number"
+          />
+        </div>
+        <button
+          class="w-full p-[10px] bg-blue-500 text-[16px] text-white font-bold text-center rounded-xl cursor-pointer"
+        >
+          Send Now
+        </button>
+      </div>
+    </div>
+    <!-- Transfer money form area end  -->
+
+    <!-- Get Bonus form area  -->
+    <div
+      id="get-bonus-form"
+      class="form max-w-[450px] mx-auto mt-[30px] hidden"
+    >
+      <h1 class="text-[20px] font-bold">Get Bonus</h1>
+      <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for=""
+            >Enter Bonus Coupon</label
+          ><br />
+          <input
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Enter your coupon"
+          />
+        </div>
+        <button
+          class="w-full p-[10px] bg-blue-500 text-[16px] text-white font-bold text-center rounded-xl cursor-pointer"
+        >
+          Get Bonus
+        </button>
+      </div>
+    </div>
+    <!-- Get Bonus form area end  -->
+
+    <!-- Pay Bill form area  -->
+    <div id="pay-bill-form" class="form max-w-[450px] mx-auto mt-[30px] hidden">
+      <h1 class="text-[20px] font-bold">Pay Bill</h1>
+      <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for="">Select To Pay</label
+          ><br />
+          <select class="select text-gray-500 text-[14px] w-full rounded-xl">
+            <option disabled selected>Select a Bank</option>
+            <option>AB Bank</option>
+            <option>Islamic Bank</option>
+            <option>Dutch Bangla Bank</option>
+            <option>Sonali Bank</option>
+          </select>
+        </div>
+
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for=""
+            >Bill Account Number</label
+          ><br />
+          <input
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Enter account number"
+          />
+        </div>
+
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for="">Amount To Pay</label
+          ><br />
+          <input
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Add Amount to pay"
+          />
+        </div>
+
+        <div class="single-form">
+          <label class="text-[14px] text-gray-500" for="">Pin Number</label
+          ><br />
+          <input
+            class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
+            type="number"
+            placeholder="Enter 4 digit pin number"
+          />
+        </div>
+        <button
+          class="w-full p-[10px] bg-blue-500 text-[16px] text-white font-bold text-center rounded-xl cursor-pointer"
+        >
+          Pay Now
+        </button>
+      </div>
+    </div>
+    <!-- Pay Bill form area end  -->
+
+    <!-- Transaction History form area  -->
+    <div
+      id="transaction-history-form"
+      class="form latest-payment max-w-[450px] mx-auto mt-[40px] pb-[20px] hidden"
+    >
+      <div class="content flex justify-between mb-[30px]">
+        <h1 class="font-bold">Transaction History</h1>
+        <h1 class="text-gray-500">View All</h1>
+      </div>
+
+      <!-- div.update-area  -->
+      <!-- <div
+        class="update-div flex justify-between items-center bg-white p-[20px] rounded-lg mb-[16px]"
+      >
+        <div class="flex items-center">
+          <div
+            class="bg-[#F4F5F7] p-[8px] rounded-full w-[45px] h-[45px] flex justify-center items-center"
+          >
+            <img src="./images/wallet1.png" alt="" />
+          </div>
+          <div class="content ml-[15px] text-[14px]">
+            <h1 class="font-bold text-[16px]">Electricity Bill</h1>
+            <p class="text-gray-500">Today 01.44 PM</p>
+          </div>
+        </div>
+        <div>
+          <i class="fa-solid fa-ellipsis-vertical text-[22px]"></i>
+        </div>
+      </div> -->
+      <!-- div.update-area  end-->
+    </div>
+    <!-- Transaction History form area end  -->
+
+    <!-- Latest Payment area  -->
+    <div
+      id="latest-payment"
+      class="form latest-payment max-w-[450px] mx-auto mt-[40px] hidden"
+    >
+      <div class="content flex justify-between mb-[30px]">
+        <h1 class="font-bold">Latest Payment</h1>
+        <h1 class="text-gray-500">View All</h1>
+      </div>
+
+      <!-- Electricity Bill  -->
+      <div
+        class="update-div flex justify-between items-center bg-white p-[20px] rounded-lg mb-[20px]"
+      >
+        <div class="flex items-center">
+          <div
+            class="bg-[#F4F5F7] p-[8px] rounded-full w-[45px] h-[45px] flex justify-center items-center"
+          >
+            <img src="./images/wallet1.png" alt="" />
+          </div>
+          <div class="content ml-[15px] text-[14px]">
+            <h1 class="font-bold text-[16px]">Electricity Bill</h1>
+            <p class="text-gray-500">Today 01.44 PM</p>
+          </div>
+        </div>
+        <div>
+          <i class="fa-solid fa-ellipsis-vertical text-[22px]"></i>
+        </div>
+      </div>
+
+      <!-- Cash out bill  -->
+      <div
+        class="update-div flex justify-between items-center bg-white p-[20px] rounded-lg mb-[20px]"
+      >
+        <div class="flex items-center">
+          <div
+            class="bg-[#F4F5F7] p-[8px] rounded-full w-[45px] h-[45px] flex justify-center items-center"
+          >
+            <img src="./images/wallet1.png" alt="" />
+          </div>
+          <div class="content ml-[15px] text-[14px]">
+            <h1 class="font-bold text-[16px]">Cash Out Bill</h1>
+            <p class="text-gray-500">Today 02.30 PM</p>
+          </div>
+        </div>
+        <div>
+          <i class="fa-solid fa-ellipsis-vertical text-[22px]"></i>
+        </div>
+      </div>
+      <!-- div.update-area  end-->
+    </div>
+    <!-- Latest Payment area end  -->
+
+    <script src="home.js"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payoo-app</title>
+    <link rel="shortcut icon" href="./images/Group.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Tailwind and daisyui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body
+    class="bg-blue-200 h-[100vh] flex flex-col justify-center items-center font-outfit"
+  >
+    <div
+      class="bg-[url(./images/bg.png)] bg-no-repeat bg-top w-[350px] bg-cover flex justify-center p-8 bg-white rounded-tl-lg rounded-tr-lg"
+    >
+      <img src="./images/Group.png" alt="" />
+    </div>
+
+    <form
+      class="w-[350px] p-5 bg-white rounded-bl-lg rounded-br-lg shadow-bottom-2"
+    >
+      <div>
+        <label class="font-semibold" for="">Mobile Number</label><br />
+        <input
+          id="mobile-number"
+          class="my-[10px] w-full text-[14px] rounded-lg p-2"
+          type="text"
+          placeholder="Type your mobile number"
+        />
+      </div>
+      <div>
+        <label class="font-semibold" for="">4 Digit Pin</label><br />
+        <input
+          id="pin-number"
+          class="mt-[10px] w-full rounded-lg p-2 text-[14px]"
+          type="text"
+          placeholder="Type your 4 Digit Pin"
+        />
+      </div>
+      <button
+        id="btn-login"
+        class="bg-blue-400 w-full rounded-lg mt-[15px] p-3 text-white cursor-pointer"
+      >
+        Log In
+      </button>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
