@@ -174,7 +174,7 @@
             id="pin-number"
             class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
             type="number"
-            placeholder="Add 4 digit pin number"
+            placeholder="Add 5 digit pin number"
           />
         </div>
         <button
@@ -188,7 +188,7 @@
     <!-- Add Money form area end  -->
 
     <!-- Cash out form area  -->
-    <div id="cash-out-form" class="form max-w-[450px] mx-auto mt-[30px]">
+    <div id="cash-out-form" class="form max-w-[450px] mx-auto mt-[30px] hidden">
       <h1 id="cash-outH1" class="text-[20px] font-bold">Cash Out</h1>
       <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
         <div class="single-form">
@@ -237,13 +237,14 @@
       id="transfer-money-form"
       class="form max-w-[450px] mx-auto mt-[30px] hidden"
     >
-      <h1 class="text-[20px] font-bold">Transfer Money</h1>
+      <h1 id="transfer-title" class="text-[20px] font-bold">Transfer Money</h1>
       <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
         <div class="single-form">
           <label class="text-[14px] text-gray-500" for=""
             >User Account Number</label
           ><br />
           <input
+            id="transfer-account-number"
             class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
             type="number"
             placeholder="Enter 11 digit number"
@@ -253,6 +254,7 @@
         <div class="single-form">
           <label class="text-[14px] text-gray-500" for="">Amount</label><br />
           <input
+            id="input-transfer-money"
             class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
             type="number"
             placeholder="Enter amount to transfer"
@@ -263,12 +265,14 @@
           <label class="text-[14px] text-gray-500" for="">Pin Number</label
           ><br />
           <input
+            id="transfer-pin-number"
             class="w-full rounded-xl p-[7px] border-gray-300 text-[14px]"
             type="number"
-            placeholder="Enter 4 digit pin number"
+            placeholder="Enter 5 digit pin number"
           />
         </div>
         <button
+          id="btn-transfer-money"
           class="w-full p-[10px] bg-blue-500 text-[16px] text-white font-bold text-center rounded-xl cursor-pointer"
         >
           Send Now
@@ -394,7 +398,7 @@
     <!-- Latest Payment area  -->
     <div
       id="latest-payment"
-      class="form latest-payment max-w-[450px] mx-auto mt-[40px] hidden"
+      class="form latest-payment max-w-[450px] mx-auto mt-[40px]"
     >
       <div class="content flex justify-between mb-[30px]">
         <h1 class="font-bold">Latest Payment</h1>

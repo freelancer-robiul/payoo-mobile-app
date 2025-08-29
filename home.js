@@ -226,10 +226,99 @@ getElement("btn-cashout-money").addEventListener("click", function () {
           <div
             class="bg-[#F4F5F7] p-[8px] rounded-full w-[45px] h-[45px] flex justify-center items-center"
           >
-            <img src="./images/wallet1.png" alt="" />
+            <img src="./images/send1.png" alt="" />
           </div>
           <div class="content ml-[15px] text-[14px]">
             <h1 class="font-bold text-[16px]">${cashOutH1} - ${inputWithdrawAmount} TK.</h1>
+            <p class="text-gray-500">${formattedTime}</p>
+          </div>
+        </div>
+        <div>
+          <i class="fa-solid fa-ellipsis-vertical text-[22px]"></i>
+        </div>
+      </div>
+      
+      `;
+  transactionContainer.append(newCardElement);
+});
+
+// Transfer Money Button =========================================
+getElement("btn-transfer-money").addEventListener("click", function () {
+  let mainBalance = Number(getElement("main-balance").innerText);
+  let inputTransferMoney = Number(getElement("input-transfer-money").value);
+  let transferNumber = 11223344556;
+  let pinNum = 22331;
+  let accountNumber = Number(getElement("transfer-account-number").value);
+  let transferPinNumber = Number(getElement("transfer-pin-number").value);
+  let transferH1 = getElement("transfer-title").innerText;
+
+  // Transfer Account Number
+  if (accountNumber !== transferNumber) {
+    alert("Please use Transfer Account Number: 11223344556");
+    getElement("transfer-account-number").value = "";
+    return;
+  } else {
+    getElement("transfer-account-number").value = "";
+  }
+
+  // Dynamic Balance
+  if (inputTransferMoney <= 0 || inputTransferMoney > mainBalance) {
+    alert("Input Valid Amount");
+    getElement("input-transfer-money").value = "";
+    return;
+  } else {
+    let currentBalance = mainBalance - inputTransferMoney;
+
+    getElement("main-balance").innerText = currentBalance;
+    getElement("input-transfer-money").value = "";
+  }
+
+  // Pin Number
+  if (transferPinNumber !== pinNum) {
+    alert("Please use this Pin Number: 22331");
+    getElement("transfer-pin-number").value = "";
+    return;
+  } else {
+    getElement("transfer-pin-number").value = "";
+  }
+
+  // Time set ==========
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const now = new Date();
+
+  let hours = now.getHours();
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+
+  hours = hours % 12 || 12;
+
+  const formattedTime =
+    days[now.getDay()] + " " + hours + "." + minutes + " " + ampm;
+
+  // Card Add to transaction div
+  let transactionContainer = getElement("transaction-history-form");
+  let newCardElement = document.createElement("div");
+  newCardElement.innerHTML = `
+
+      <div
+        class="update-div flex justify-between items-center bg-white p-[20px] rounded-lg mb-[16px]"
+      >
+        <div class="flex items-center">
+          <div
+            class="bg-[#F4F5F7] p-[8px] rounded-full w-[45px] h-[45px] flex justify-center items-center"
+          >
+            <img src="./images/money1.png" alt="" />
+          </div>
+          <div class="content ml-[15px] text-[14px]">
+            <h1 class="font-bold text-[16px]">${transferH1} - ${inputTransferMoney} TK.</h1>
             <p class="text-gray-500">${formattedTime}</p>
           </div>
         </div>
