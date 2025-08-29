@@ -13,6 +13,7 @@ document.getElementById("btn-login").addEventListener("click", function (e) {
     inputMobileNumberConverted === mobileNumber &&
     inputPinNumberConverted === pinNumber
   ) {
+    localStorage.setItem("isLoggedIn", "true");
     window.location.href = "./home.html";
   } else {
     alert(

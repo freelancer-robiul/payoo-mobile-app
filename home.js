@@ -5,8 +5,13 @@ function getElement(id) {
 
 // Home Page to Login page
 getElement("btn-logout").addEventListener("click", function () {
+  localStorage.removeItem("isLoggedIn");
   window.location.href = "index.html";
 });
+
+if (localStorage.getItem("isLoggedIn") !== "true") {
+  window.location.href = "index.html";
+}
 
 // Featured Toggle
 getElement("add-money").addEventListener("click", function () {
