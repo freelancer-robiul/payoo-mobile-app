@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
+body {
+  overflow-x: auto;
+}
+
 .font-outfit {
   font-family: "Outfit", sans-serif;
 }
@@ -15,4 +19,73 @@ p {
 
 .shadow-bottom-2 {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* 320px to 380px *******************************/
+
+@media (min-width: 320px) and (max-width: 380px) {
+  .parent {
+    background-color: #87ceeb; /* SkyBlue */
+  }
+
+  .parent .welcome-p {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .parent .header-p {
+    font-size: 10px;
+  }
+
+  .parent .header-image {
+    height: 40px;
+    margin-left: 10px;
+  }
+
+  .parent .p-br {
+    display: none;
+  }
+
+  .parent .featured-area {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 8px; /* column gap optional */
+  }
+
+  .parent .single-feature {
+    border: 1px solid ghostwhite;
+  }
+  .parent #btn-logout {
+    margin-right: 6px;
+  }
+}
+
+/* 381px to 480px *********************************/
+
+@media (min-width: 381px) and (max-width: 480px) {
+  .parent {
+    background-color: #87ceeb;
+  }
+
+  .parent #btn-logout {
+    font-size: 16px;
+  }
+
+  .parent .header-p {
+    font-size: 12px;
+  }
+
+  .parent .single-feature {
+    border: 1px solid ghostwhite;
+  }
+
+  .parent .single-feature p {
+    color: black;
+  }
+
+  .parent .featured-area {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 12px; /* column gap optional */
+  }
 }

@@ -23,16 +23,16 @@
     />
   </head>
   <body class="bg-[#F4F5F7]">
-    <div class="parent max-w-[450px] mx-auto bg-white">
+    <div class="parent max-w-[520px] mx-auto">
       <!-- header area  -->
       <div
-        class="flex justify-between items-center border-b-2 border-[#08080808] py-[20px] px-[10px] sticky top-0 bg-blue-50 z-50 shadow-bottom"
+        class="flex justify-between items-center border-b-2 border-[#08080808] py-[20px] px-[12px] sticky top-0 bg-blue-50 z-50 shadow-bottom"
       >
         <div class="left flex items-center">
-          <img class="h-[50px]" src="./images/Group.png" alt="" />
+          <img class="header-image h-[50px]" src="./images/Group.png" alt="" />
           <div class="price ml-[10px] text-blue-600">
             $<span id="main-balance" class="font-semibold">4500</span>
-            <p>Available Balance</p>
+            <p class="header-p">Available Balance</p>
           </div>
         </div>
         <div class="right">
@@ -49,13 +49,15 @@
       </div>
 
       <!-- welcome area  -->
-      <div class="welcome p-[24px]">
+      <div class="welcome p-[14px] text-center">
         <h1 class="text-[24px] font-bold mb-[7px]">
           <i class="fa-solid fa-fire text-red-500"></i>
           Welcome to Payooo!
         </h1>
-        <p class="text-[14px] text-gray-500">
-          Enjoy easy and convenient financial services with us.<br />
+        <p class="welcome-p text-[14px] text-gray-600">
+          Enjoy easy and convenient financial services with us.<br
+            class="p-br"
+          />
           Cashout charge is low and
         </p>
       </div>
@@ -63,12 +65,12 @@
       <!-- Featured area  -->
       <div
         id="featured-area"
-        class="featured-area grid grid-cols-3 justify-items-center gap-4 rounded-b-lg p-[20px]"
+        class="featured-area grid grid-cols-3 justify-items-center gap-6 rounded-b-lg p-[20px]"
       >
         <!-- Add Money  -->
         <div
           id="add-money"
-          class="single-feature w-[130px] h-[90px] border-2 border-gray-300 flex justify-center items-center flex-col rounded-lg space-y-2 p-[10px] cursor-pointer"
+          class="single-feature w-[130px] h-[90px] border-2 border-gray-600 flex justify-center items-center flex-col rounded-lg space-y-2 p-[10px] cursor-pointer"
         >
           <img src="./images/wallet1.png" alt="" />
           <p class="text-gray-500">Add Money</p>
@@ -125,9 +127,11 @@
     <!-- Add Money form area  -->
     <div
       id="add-money-form"
-      class="form max-w-[450px] mx-auto mt-[30px] hidden"
+      class="form max-w-[480px] mx-auto mt-[30px] hidden"
     >
-      <h1 id="add-moneyH1" class="text-[20px] font-bold">Add Money</h1>
+      <h1 id="add-moneyH1" class="text-[20px] font-bold ml-[20px]">
+        Add Money
+      </h1>
       <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
         <div class="single-form">
           <label class="text-gray-500 text-[14px]" for="">Select Bank</label
@@ -189,7 +193,7 @@
 
     <!-- Cash out form area  -->
     <div id="cash-out-form" class="form max-w-[450px] mx-auto mt-[30px] hidden">
-      <h1 id="cash-outH1" class="text-[20px] font-bold">Cash Out</h1>
+      <h1 id="cash-outH1" class="text-[20px] font-bold ml-[20px]">Cash Out</h1>
       <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
         <div class="single-form">
           <label class="text-[14px] text-gray-500" for="">Agent Number</label
@@ -237,7 +241,9 @@
       id="transfer-money-form"
       class="form max-w-[450px] mx-auto mt-[30px] hidden"
     >
-      <h1 id="transfer-title" class="text-[20px] font-bold">Transfer Money</h1>
+      <h1 id="transfer-title" class="text-[20px] font-bold ml-[20px]">
+        Transfer Money
+      </h1>
       <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
         <div class="single-form">
           <label class="text-[14px] text-gray-500" for=""
@@ -286,7 +292,7 @@
       id="get-bonus-form"
       class="form max-w-[450px] mx-auto mt-[30px] hidden"
     >
-      <h1 class="text-[20px] font-bold">Get Bonus</h1>
+      <h1 class="text-[20px] font-bold ml-[20px]">Get Bonus</h1>
       <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
         <div class="single-form">
           <label class="text-[14px] text-gray-500" for=""
@@ -309,7 +315,7 @@
 
     <!-- Pay Bill form area  -->
     <div id="pay-bill-form" class="form max-w-[450px] mx-auto mt-[30px] hidden">
-      <h1 class="text-[20px] font-bold">Pay Bill</h1>
+      <h1 class="text-[20px] font-bold ml-[20px]">Pay Bill</h1>
       <div class="form-area bg-white mt-[15px] p-[20px] rounded-xl space-y-4">
         <div class="single-form">
           <label class="text-[14px] text-gray-500" for="">Select To Pay</label
@@ -367,7 +373,7 @@
       id="transaction-history-form"
       class="form latest-payment max-w-[450px] mx-auto mt-[40px] pb-[20px] hidden"
     >
-      <div class="content flex justify-between mb-[30px]">
+      <div class="content flex justify-between mb-[30px] px-[15px]">
         <h1 class="font-bold">Transaction History</h1>
         <h1 class="text-gray-500">View All</h1>
       </div>
@@ -400,7 +406,7 @@
       id="latest-payment"
       class="form latest-payment max-w-[450px] mx-auto mt-[40px]"
     >
-      <div class="content flex justify-between mb-[30px]">
+      <div class="content flex justify-between mb-[30px] px-[15px]">
         <h1 class="font-bold">Latest Payment</h1>
         <h1 class="text-gray-500">View All</h1>
       </div>
